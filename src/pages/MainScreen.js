@@ -8,7 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
 
-import {getSingleTemperatures} from '../api/WeatherServiceApi.js';
+
 import {TempChart} from '../temperature/TempChart.js';
 
 function TabContainer({ children, dir }) {
@@ -38,30 +38,10 @@ export class MainScreen extends Component {
    constructor(props){
      super(props);
        this.state = {
-         tempData: "",
-         sensorDrawerOpen: false,
-         value: 0
+         sensorDrawerOpen: false
        };
    }
 
-   componentDidMount(){
-
-     const params = {
-       startDate: '2018-08-20T15:16:51.524Z',
-       endDate: '2018-08-31T15:20:51.524Z',
-       nodeId: '0013A200406B8D09'
-     };
-
-     const options = {
-       success: (json) => {this.setState({tempData: json});},
-       error: (err) => {console.log(err);}
-     };
-
-     console.log("Getting temps");
-     getSingleTemperatures(params, options);
-
-
-   }
 
    handleChange = (event, value) => {
      this.setState({ value });
@@ -70,6 +50,8 @@ export class MainScreen extends Component {
    handleChangeIndex = index => {
      this.setState({ value: index });
    };
+
+
 
   render(){
     return (
@@ -97,7 +79,7 @@ export class MainScreen extends Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer >
-                    <TempChart data={this.state.tempData} />
+                    <TempChart />
           </TabContainer>
           <TabContainer >Item Two</TabContainer>
           <TabContainer >Item Three</TabContainer>

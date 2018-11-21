@@ -32,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
       <div className="App">
 
           <div className="header">

@@ -13,8 +13,8 @@ Options must include:
 */
 export const getSingleTemperatures = (params, options) => {
 
-  const url = endpoints.weatherServiceEndpoint + 'data/temperature?nodeId=' + params.nodeId +
-  '&startDate=' + params.startDate + '&endDate=' + params.endDate + '&resolution=0';
+  const url = endpoints.weatherServiceEndpoint + 'data/temperatures?nodeId=' + params.nodeId +
+  '&startTime=' + params.startDate + '&endTime=' + params.endDate + '&resolution=0';
 
 
   fetch(url)

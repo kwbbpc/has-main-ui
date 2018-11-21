@@ -2,5 +2,5 @@
 
 
 export default {
-  weatherServiceEndpoint: 'http://localhost:10001/'
+  weatherServiceEndpoint: 'https://96ppzngun1.execute-api.us-east-1.amazonaws.com/beta/'
 };
