@@ -1,4 +1,3 @@
-import React from 'react';
 import endpoints from './endpoints.js';
 
 /*
@@ -16,6 +15,19 @@ export const getSingleTemperatures = (params, options) => {
   const url = endpoints.weatherServiceEndpoint + 'data/temperatures?nodeId=' + params.nodeId +
   '&startTime=' + params.startDate + '&endTime=' + params.endDate + '&resolution=0';
 
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => options.success(data))
+    .catch(err => options.error(err));
+
+}
+
+
+export const getSingleHumidity = (params, options) => {
+
+  const url = endpoints.weatherServiceEndpoint + 'data/humidity?nodeId=' + params.nodeId +
+  '&startTime=' + params.startDate + '&endTime=' + params.endDate + '&resolution=0';
 
   fetch(url)
     .then(response => response.json())

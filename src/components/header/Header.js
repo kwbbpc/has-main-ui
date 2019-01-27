@@ -23,25 +23,14 @@ const Styles = {
 export class Header extends Component{
 
 
-  constructor(props){
-    super(props);
-  }
-
   render(){
 
-    var sensorsClickFn = this.props.sensorsClick;
-    console.log("click set.")
-    if(this.props.sensorsClick == null){
-      console.log("resetting onclick")
-      sensorsClickFn = ()=>{};
-    }
 
     return (
       <div style={Styles.container}>
         <div style={Styles.leftGradient} />
-        <img src={headerimg} />
+        <img src={headerimg} alt="V.I.C.K.I.E. H.A.S."/>
         <div style={Styles.rightGradient} >
-          Welcome to Zombocom!
         </div>
       </div>
     )

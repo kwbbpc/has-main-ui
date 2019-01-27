@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -24,12 +23,6 @@ TabContainer.propTypes = {
   dir: PropTypes.string.isRequired,
 };
 
-const styles = theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: 500,
-  },
-});
 
 
 export class MainScreen extends Component {
@@ -38,7 +31,8 @@ export class MainScreen extends Component {
    constructor(props){
      super(props);
        this.state = {
-         sensorDrawerOpen: false
+         sensorDrawerOpen: false,
+         value: 0
        };
    }
 
@@ -78,11 +72,19 @@ export class MainScreen extends Component {
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}
         >
-          <TabContainer >
+          <TabContainer dir={"test"}>
                     <TempChart />
           </TabContainer>
-          <TabContainer >Item Two</TabContainer>
-          <TabContainer >Item Three</TabContainer>
+          <TabContainer  dir={"test"}>Item Two</TabContainer>
+          <TabContainer  dir={"test"}>Item Three</TabContainer>
+
+          <TabContainer  dir={"test"}>Item Three</TabContainer>
+
+          <TabContainer  dir={"test"}>Item Three</TabContainer>
+
+          <TabContainer  dir={"test"}>Item Three</TabContainer>
+
+          <TabContainer  dir={"test"}>Item Three</TabContainer>
         </SwipeableViews>
       </div>
     );

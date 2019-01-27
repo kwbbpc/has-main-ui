@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'typeface-roboto';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -7,7 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {Header} from './components/header/Header.js';
 import {MainScreen} from './pages/MainScreen.js';
 
-
+window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
 const theme = createMuiTheme({
   palette: {
@@ -16,10 +15,12 @@ const theme = createMuiTheme({
     },
     secondary: {
       main: '#ffebee',
+    },
+    typography: {
+      useNextVariants: true,
     }
   }
 });
-
 class App extends Component {
 
 
