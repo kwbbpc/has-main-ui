@@ -12,3 +12,155 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+body {
+  padding: 5em;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 1em;
+}
+
+.circle-loader {
+  margin-bottom: 3.5em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-left-color: #0acda2;
+  animation: loader-spin 1.2s infinite linear;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+  width: 7em;
+  height: 7em;
+}
+
+.load-complete {
+  -webkit-animation: none;
+  animation: none;
+  transition: border 500ms ease-out;
+}
+
+.load-complete.checkmark {
+  border-color: #0acda2;
+}
+
+.load-complete.failmark {
+  border-color: #cd0a58;
+}
+
+.failmark > div.draw {
+  display: block;
+}
+.failmark > div.draw:before {
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+  animation-name: failmark;
+  transform: scaleX(-1) rotate(135deg);
+}
+.failmark > div.draw:before {
+  opacity: 1;
+  height: 2.5em;
+  width: 2.5em;
+  transform-origin: left top;
+  border-right: 3px solid #cd0a58;
+  border-top: 3px solid #cd0a58;
+  content: "";
+  left: 1.55em;
+  top: 1.8em;
+  position: absolute;
+}
+.failmark > div.draw:after {
+  opacity: 1;
+  height: 2.5em;
+  width: 2.5em;
+  transform-origin: left top;
+  border-right: 3px solid #cd0a58;
+  border-top: 3px solid #cd0a58;
+  content: "";
+  left: 5em;
+  top: 5.1em;
+  position: absolute;
+}
+.failmark > div.draw:after {
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+  animation-name: failmark;
+  transform: scaleX(-1) rotate(314deg);
+}
+
+.checkmark > div.draw {
+  display: block;
+}
+.checkmark > div.draw:after {
+  opacity: 1;
+  height: 3.5em;
+  width: 1.75em;
+  transform-origin: left top;
+  border-right: 3px solid #0acda2;
+  border-top: 3px solid #0acda2;
+  content: "";
+  left: 1.75em;
+  top: 3.5em;
+  position: absolute;
+}
+.checkmark > div.draw:after {
+  animation-duration: 800ms;
+  animation-timing-function: ease;
+  animation-name: checkmark;
+  transform: scaleX(-1) rotate(135deg);
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes failmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 2.5em;
+    opacity: 1;
+  }
+  40% {
+    height: 2.5em;
+    width: 2.5em;
+    opacity: 1;
+  }
+  100% {
+    height: 2.5em;
+    width: 2.5em;
+    opacity: 1;
+  }
+}
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: 1.75em;
+    opacity: 1;
+  }
+  40% {
+    height: 3.5em;
+    width: 1.75em;
+    opacity: 1;
+  }
+  100% {
+    height: 3.5em;
+    width: 1.75em;
+    opacity: 1;
+  }
+}

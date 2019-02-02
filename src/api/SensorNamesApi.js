@@ -19,3 +19,32 @@ export const getAllSensorNames = (params, options) => {
     .catch(err => options.error(err));
 
 }
+
+export const putUpdateSensor = (params, options) => {
+
+    const url = endpoints.sensorNameEndpoint;
+
+    if(params.nodeId != null){
+      const body = {
+        "nodeId": params.nodeId,
+        "sensorName": params.sensorName,
+        "location": params.location,
+        "description": params.description,
+        "notes": params.notes
+      }
+
+      fetch(url, {
+          method: 'PUT',
+          body: JSON.stringify(body)
+      })
+      .then(response => response.json())
+      .then(data => options.success(data))
+      .catch(err => options.error(err));
+
+
+    }else{
+      options.error("No sensor provided in params: " + JSON.stringify(params));
+    }
+
+
+}
